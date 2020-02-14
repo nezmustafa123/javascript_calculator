@@ -4,11 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
   <title>Calculator</title>
 </head>
 <body>
 
+  
+    <div id="calculator-grid" class="calculator-grid">
+    <div class="output">
+      <div id="previous-operand"></div> 
+      <div id="display"></div>
+    </div>
+    <button onclick="getTarget('clear')" data-operator="clear" id="clear" class="operator">AC</button>
+    <button onclick ="getTarget('del')" data-operator="del" class="operator">DEL</button>
+    <button onclick ="getTarget('divide')" data-operator="divide" id="divide" class="operator">÷</button>
+    <button onclick= "getTarget(1)" data-number="1" id="one" class="number">1</button>
+    <button onclick= "getTarget(2)" data-number="2" id="two" class="number">2</button>
+    <button onclick= "getTarget(3)" data-number="3" id="three" class="number">3</button>
+    <button onclick= "getTarget('multiply')" data-operator="multiply" class="operator">*</button>
+    <button onclick="getTarget(4)" data-number="4" id="four" class="number">4</button>
+    <button onclick ="getTarget(5)"data-number="5" id="five "class="number">5</button>
+    <button onclick="getTarget(6)"data-number="6" id ="six" class="number">6</button>
+    <button onclick="getTarget('add')" data-operator="add" id="add"  class="operator">+</button>
+    <button onlick="getTarget(7)" data-number="7" id="seven" class="number">7</button>
+    <button onclick="getTarget(8)" data-number="8"  id="eight" class="number">8</button>
+    <button onclick="getTarget(9)" data-number="9" id="nine" class="number">9</button>
+    <button onclick="getTarget('minus')" data-operator="minus" id="minus" class="operator">-</button>
+    <button onclick="getTarget('decimal')" data-operator="decimal" id ="decimal" class="operator">.</button>
+    <button onclick= "getTarget(0)"  data-number="0" id="zero" class="number">0</button>
+    <button onclick= "getTarget('equals')" data-operator="equals" id="equals" class="span-two operator">=</button>
+  </div>
+  
+  
+  
+  
+  
+  
 
   <script src="app.js"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>
