@@ -11,8 +11,9 @@
 
   
     <div id="calculator-grid" class="calculator-grid">
+     <div id="previous-operand"></div> 
     <div class="output">
-      <div id="previous-operand"></div> 
+     
       <div id="display"></div>
     </div>
     <button onclick="getTarget('clear')" data-operator="clear" id="clear" class="operator">AC</button>
@@ -29,7 +30,7 @@
     <button onlick="getTarget(7)" id="seven" data-number="7" class="number">7</button>
     <button onclick="getTarget(8)" id="eight"  data-number="8"  class="number">8</button>
     <button onclick="getTarget(9)" id="nine"  data-number="9" class="number">9</button>
-    <button onclick="getTarget('minus')" id="minus"  data-operator="minus" class="operator">-</button>
+    <button onclick="getTarget('minus')" id="subtract"  data-operator="minus" class="operator">-</button>
     <button onclick="getTarget('decimal')" id ="decimal"  data-operator="decimal" id ="decimal" class="operator">.</button>
     <button onclick= "getTarget(0)" data-number="0" id="zero" class="number">0</button>
     <button onclick= "getTarget('equals')" data-operator="equals" id="equals" class="span-two operator">=</button>

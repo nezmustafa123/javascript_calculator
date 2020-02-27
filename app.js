@@ -1,6 +1,8 @@
 //start with string
 var tempMem = ""; 
 
+//parseInt(tempMem);
+
 function getHistory() {
 	//maipulate history
 	return document.getElementById('previous-operand').innerText;
@@ -22,33 +24,33 @@ function printOutput(num) {
 //	string plus number coerces into string
 	
 	
-	
 //	tempMem = tempMem + num
 	
-	
-	
-	
-	console.log(tempMem);
-	if (num == "") {
+//console.log(tempMem); 
+	if (num === "") {
 		document.getElementById('display').innerText = num;
 	} else {
 		//		..convert to comma seperated value
 		document.getElementById('display').innerText = getFormattedNumber(tempMem);
+		 console.log(getFormattedNumber(tempMem), 'getformattednumber');
 	}
 	
 }
 
 
-
 function getFormattedNumber(num) {
-	if (num == "minus") {
-		return "";
-	}
+	
 	var n = Number(num);
-	var value = n.toLocaleString("en");
+//	var value = n.toLocaleString("en");
 //	console.log(n)
-	return value;
+	return n;
 
+}
+
+function clearOutput() {
+	{
+		tempMem = 0;
+	}
 }
 
 function reverseNumberFormat(num) {
@@ -58,47 +60,49 @@ function reverseNumberFormat(num) {
 var operator = document.getElementsByClassName("operator");
 for (var i = 0; i < operator.length; i++) {
 	operator[i].addEventListener('click', function () {
-		if (this.id == "clear") {
-			printHistory("");
-			printOutput("");
+		if (this.id === "clear") {
+		   clearOutput();
+			printHistory(0);
+			printOutput(0);
 
 
-		} else if (this.id == "backspace") {
-			var output = reverseNumberFormat(getOutput()).toString();
+		} else if (this.id === "backspace") 
+		{ var output = reverseNumberFormat(getOutput()).toString();
 			if (output) { //if output has a value
 				output = output.substr(0, output.length - 1);
-				printOutput(output);
+				console.log(Number(printOutput(output)));
 			}
 		} else {
 			var output = getOutput();
 			var history = getHistory();
-			if (output == "" && history != "") {
+			if (output === "" && history != "") {
 				if (isNaN(history[history.length - 1])) {
 					history = history.substr(0, history.length - 1);
 				}
 			}
 			if (output != "" || history != "") {
-				output = output == "" ?
+				output = output === "" ?
 					output : reverseNumberFormat(output);
 
 				history = history + output;
-				if (this.id == "=") {
+				if (this.id === "=") {
 					var result = eval(history);
 					printOutput(result);
 					printHistory("");
 
 
 				} else {
-					history = history.this.id;
+					history = this.id;
+//					console.log(history);
 					printHistory(history);
 					printOutput("");
 
-//					console.log(history);
+				
 				}
 			}
 		}
 
-
+//      console.log(history);
 	});
 }
 
@@ -109,10 +113,14 @@ function toString(num) {
 
 function getTarget(btnVal) {
 	
-	if(btnVal == del){
+	if(btnVal === del){
     tempMem = "";
 	}
-	else {
+	else if(btnVal === clear) {
+		tempMem = 0;
+	}
+	else 
+	{
 	tempMem = tempMem + btnVal
 	}
 
@@ -201,7 +209,7 @@ function getTarget(btnVal) {
 //    function evalOutput() {
 //        cOutput('black');
 ////        output.style.border = 'black 1px solid';
-//        if(output.value === ""){
+//        if(output.value ==== ""){
 //            cOutput('red');
 //        } else if (eva) {
 //             cOutput('red');
@@ -243,7 +251,7 @@ function getTarget(btnVal) {
 //    let char = e.target.val;
 ////    output.value += char;
 //      //if charachter is decimal
-//      if (char == '.') {
+//      if (char === '.') {
 //          if (dec){
 //              char = '';
 //             cOutput('red');
