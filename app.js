@@ -1,6 +1,7 @@
 //start with string
 var tempMem = ""; 
 
+const display = document.querySelector('#display');
 //parseInt(tempMem);
 
 function getHistory() {
@@ -17,8 +18,6 @@ function getOutput() {
 	return document.getElementById('display').innerText;
 
 }
-
-
 function printOutput(num) {
 	//start with temp mem string 
 //	string plus number coerces into string
@@ -27,15 +26,44 @@ function printOutput(num) {
 //	tempMem = tempMem + num
 	
 //console.log(tempMem); 
-	if (num === "") {
+	if (num) {
 		document.getElementById('display').innerText = num;
 	} else {
 		//		..convert to comma seperated value
 		document.getElementById('display').innerText = getFormattedNumber(tempMem);
-		 console.log(getFormattedNumber(tempMem), 'getformattednumber');
+		 (getFormattedNumber(tempMem), 'getformattednumber');
 	}
 	
 }
+
+document.querySelectorAll('[data-value]').forEach(el => {
+	el.onclick = e => {
+//		el.dataset.value
+//		console.log(el.dataset.value)
+//		display.innerText += el.dataset.value ;
+//     val is for field elements
+		if(display.innerText === "0") {
+			display.innerText = el.dataset.value
+		} else  {
+			display.innerText += el.dataset.value;
+		}
+			
+	}
+	
+	
+})
+
+
+
+document.querySelector('#equals').onclick = () => {
+		let result = eval(display.innerText);
+		display.innerText = result;
+}
+
+document.querySelector('#clear').onclick = () => {
+	display.innerText = 0;
+}
+
 
 
 function getFormattedNumber(num) {
@@ -57,13 +85,13 @@ function reverseNumberFormat(num) {
 	return Number(num.replace(/,/g, ''));
 }
 
-var operator = document.getElementsByClassName("operator");
+var operator = document.getElementsByClassName("operator disabled");
 for (var i = 0; i < operator.length; i++) {
 	operator[i].addEventListener('click', function () {
 		if (this.id === "clear") {
 		   clearOutput();
-			printHistory(0);
-			printOutput(0);
+//			printHistory(0);
+//			printOutput(0);
 
 
 		} else if (this.id === "backspace") 
@@ -77,7 +105,7 @@ for (var i = 0; i < operator.length; i++) {
 			var history = getHistory();
 			if (output === "" && history != "") {
 				if (isNaN(history[history.length - 1])) {
-					history = history.substr(0, history.length - 1);
+//					history = history.substr(0, history.length - 1);
 				}
 			}
 			if (output != "" || history != "") {
@@ -109,23 +137,21 @@ for (var i = 0; i < operator.length; i++) {
 function toString(num) {
 	
 }
-
-
 function getTarget(btnVal) {
 	
 	if(btnVal === del){
     tempMem = "";
 	}
 	else if(btnVal === clear) {
-		tempMem = 0;
+//		tempMem = 0;
 	}
 	else 
 	{
-	tempMem = tempMem + btnVal
+	tempMem = tempMem + btnVal.toString();
 	}
 
 	printOutput(tempMem);
-//	console.log(btnVal);
+	console.log(btnVal, tempMem);
 	
 }
 
