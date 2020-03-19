@@ -10,6 +10,12 @@ body {
   background: linear-gradient(to right, #00AAFF, #00FF6C);
 }
 
+
+.calc-container {
+	border: 3px black solid;
+	padding: 200px;
+/*	background-color:aquamarine;*/
+}
 .calculator-grid {
   display: grid;
   justify-content: center;
@@ -28,7 +34,7 @@ body {
 }
 
 .calculator-grid > button:hover {
-  background-color: rgba(255, 255, 255, .9);
+  background-color: rgba(255, 255, 255,  1);
 }
 
 .span-two {
@@ -48,11 +54,17 @@ body {
 }
 
 .output .previous-operand {
-  color: rgba(255, 255, 255, .75);
-  font-size: 1.5rem;
+  color: aliceblue;
+  font-size: 5.5rem;
 }
 
 .output .current-operand {
   color: white;
-  font-size: 2.5rem;
+  font-size: 5.5rem;
+}
+
+.output #display {
+	color: white;
+	font-size: 2.5rem;
+	
 }
